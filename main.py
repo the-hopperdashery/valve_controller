@@ -121,12 +121,8 @@ class Valve:
         self.time_remaining.configure(text="0:00")
         self.valve_completion_handler(self.valve_index)
 
-
-class MainWindow:
+class ValvePage:
     def __init__(self, master):
-        self.master = master
-        master.title("Hopperdashery Valve Controller")
-
         valve_frame = tk.Frame(master)
         valve_frame.pack()
 
@@ -154,7 +150,13 @@ class MainWindow:
             bottom_frame, text="Exit", command=master.quit)
         self.close_button.pack()
 
+class MainWindow:
+    def __init__(self, master):
+        self.master = master
+        master.title("Hopperdashery Valve Controller")
+        ValvePage(master)
 
-root = tk.Tk()
-my_gui = MainWindow(root)
-root.mainloop()
+
+# root = tk.Tk()
+# my_gui = MainWindow(root)
+# root.mainloop()

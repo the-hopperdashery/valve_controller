@@ -17,41 +17,6 @@ VALVES = [
         "default_on": "00:3",
         "default_off": "50:00",
     },
-    {
-        "display_name": "Four",
-        "default_on": "00:3",
-        "default_off": "50:00",
-    },
-    {
-        "display_name": "Five",
-        "default_on": "00:3",
-        "default_off": "50:00",
-    },
-    {
-        "display_name": "Six",
-        "default_on": "00:3",
-        "default_off": "50:00",
-    },
-    {
-        "display_name": "Seven",
-        "default_on": "00:3",
-        "default_off": "50:00",
-    },
-    {
-        "display_name": "Eight",
-        "default_on": "00:3",
-        "default_off": "50:00",
-    },
-    {
-        "display_name": "Nine",
-        "default_on": "00:3",
-        "default_off": "50:00",
-    },
-    {
-        "display_name": "Ten",
-        "default_on": "00:3",
-        "default_off": "50:00",
-    },
 ]
 
 VALVE_LABELS = [

@@ -5,8 +5,7 @@ from tkinter import ttk
 
 main = Tk()
 main.title('Notebook Demo')
-main.geometry('500x500')
-
+main.geometry('600x600')
 
 # gives weight to the cells in the grid
 rows = 0

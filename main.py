@@ -1,4 +1,5 @@
 import time
+from tkinter import *
 import tkinter as tk
 
 VALVES = [
@@ -90,6 +91,14 @@ class Valve:
         self.wait_time.insert(0, valve["default_off"])
         self.wait_time.grid(column=self.valve_index, row=5)
 
+        self.start_button = tk.Button(
+            container, text="Start", command=self.start_valve)
+        self.start_button.grid(column=self.valve_index, row=6)
+
+        self.stop_button = tk.Button(
+            container, text="Stop", command=self.stop_valve)
+        self.stop_button.grid(column=self.valve_index, row=7)
+
     def start_valve(self):
         print(f"Starting Valve {self.display_name}")
         self.running = True
@@ -142,9 +151,9 @@ class ValvePage:
             bottom_frame, text="Start", command=valve_controller.start_valves)
         self.start_button.pack()
 
-        self.start_button = tk.Button(
+        self.stop_button = tk.Button(
             bottom_frame, text="Stop", command=valve_controller.stop_valves)
-        self.start_button.pack()
+        self.stop_button.pack()
 
         self.close_button = tk.Button(
             bottom_frame, text="Exit", command=master.quit)

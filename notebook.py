@@ -20,13 +20,17 @@ nb.grid(row=1, column=0, columnspan=50, rowspan=49, sticky='NESW')
  
 # Adds tab 1 of the notebook
 page1 = ttk.Frame(nb)
-from main import ValvePage
+
+from valves import ValvePage
+from lights import LightPage
+# from climate import ClimatePage
+
 ValvePage(page1)
 nb.add(page1, text='Valves')
  
 # Adds tab 2 of the notebook
 page2 = ttk.Frame(nb)
-ValvePage(page2)
+LightPage(page2)
 nb.add(page2, text='Lights')
 
 page3 = ttk.Frame(nb)

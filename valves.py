@@ -1,6 +1,6 @@
 import time
 from tkinter import *
-import tkinter as tk
+import tkinter as ttk
 
 VALVES = [
     {
@@ -74,28 +74,28 @@ class Valve:
         self.start_time = 0.0
         self.running = False
 
-        self.label = tk.Label(container, text=self.display_name)
+        self.label = ttk.Label(container, text=self.display_name)
         self.label.grid(column=self.valve_index, row=1)
 
-        self.time_elapsed = tk.Label(container, text="0:00")
+        self.time_elapsed = ttk.Label(container, text="0:00")
         self.time_elapsed.grid(column=self.valve_index, row=2)
 
-        self.time_remaining = tk.Label(container, text="0:00")
+        self.time_remaining = ttk.Label(container, text="0:00")
         self.time_remaining.grid(column=self.valve_index, row=3)
 
-        self.run_time = tk.Entry(container, width=10)
+        self.run_time = ttk.Entry(container, width=10)
         self.run_time.insert(0, valve["default_on"])
         self.run_time.grid(column=self.valve_index, row=4)
 
-        self.wait_time = tk.Entry(container, width=10)
+        self.wait_time = ttk.Entry(container, width=10)
         self.wait_time.insert(0, valve["default_off"])
         self.wait_time.grid(column=self.valve_index, row=5)
 
-        self.start_button = tk.Button(
+        self.start_button = ttk.Button(
             container, text="Start", command=self.start_valve)
         self.start_button.grid(column=self.valve_index, row=6)
 
-        self.stop_button = tk.Button(
+        self.stop_button = ttk.Button(
             container, text="Stop", command=self.stop_valve)
         self.stop_button.grid(column=self.valve_index, row=7)
 
@@ -132,14 +132,14 @@ class Valve:
 
 class ValvePage:
     def __init__(self, master):
-        valve_frame = tk.Frame(master)
+        valve_frame = ttk.Frame(master)
         valve_frame.pack()
 
-        bottom_frame = tk.Frame(master)
-        bottom_frame.pack(side=tk.BOTTOM)
+        bottom_frame = ttk.Frame(master)
+        bottom_frame.pack(side=ttk.BOTTOM)
 
         for idx, name in enumerate(VALVE_LABELS):
-            self.label = tk.Label(valve_frame, text=name)
+            self.label = ttk.Label(valve_frame, text=name)
             self.label.grid(column=0, row=idx + 1)
 
         valve_controller = ValveController()
@@ -147,15 +147,15 @@ class ValvePage:
         for idx, valve in enumerate(VALVES):
             valve_controller.add_valve(valve_frame, valve, idx + 1)
 
-        self.start_button = tk.Button(
+        self.start_button = ttk.Button(
             bottom_frame, text="Start", command=valve_controller.start_valves)
         self.start_button.pack()
 
-        self.stop_button = tk.Button(
+        self.stop_button = ttk.Button(
             bottom_frame, text="Stop", command=valve_controller.stop_valves)
         self.stop_button.pack()
 
-        self.close_button = tk.Button(
+        self.close_button = ttk.Button(
             bottom_frame, text="Exit", command=master.quit)
         self.close_button.pack()
 
@@ -166,6 +166,6 @@ class MainWindow:
         ValvePage(master)
 
 
-# root = tk.Tk()
+# root = ttk.Tk()
 # my_gui = MainWindow(root)
 # root.mainloop()
